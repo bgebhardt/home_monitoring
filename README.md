@@ -7,7 +7,7 @@ A few goals.
 - Monitor Powerwall battery charging
     - Alert at certain levels
 - Monitor my indoor thermostat temperature over time and compare to weather forecast
-    - Optimize when to turn on the AC when there is enough solar to offset its use
+    - Optimize when to turn on the AC when there is enough solar generation to offset its use
     - Pre-cool the house
 
 # Powerwall scripts and monitoring
@@ -35,7 +35,7 @@ Example output from my simple script
 
 ```bash
 ./pypowerwall_check.py
-Site Name: My Home - Firmware: 23.12.1 7ca1b02c - DIN: 1538000-25-F--GF2220800001K3
+Site Name: My Home - Firmware: 23.12.1 7ca1b02c - DIN: <redacted>
 System Uptime: 119h18m30.79789591s
 
 Battery power level: 67%
