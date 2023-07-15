@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 
 import pypowerwall
+import powerwallconfig
+
 
 # Optional: Turn on Debug Mode
 # pypowerwall.set_debug(True)
 
 # Credentials for your Powerwall - Customer Login Data
-password =''
-email =''
-host = ""               # Address of your Powerwall Gateway
-timezone = "America/Los_Angeles"  # Your local timezone
+password =powerwallconfig.password
+email =powerwallconfig.email
+host = powerwallconfig.host               # Address of your Powerwall Gateway
+timezone = powerwallconfig.timezone  # Your local timezone
 
 # Connect to Powerwall
 pw = pypowerwall.Powerwall(host,password,email,timezone)
