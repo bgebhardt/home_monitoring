@@ -63,6 +63,16 @@ Battery Power: -3.68kW
 Home Power: 4.96kW
 ```
 
+Create a file powerwallconfig.py with your credentials in it for pypowerwall_check.py to work.
+
+```python
+# Credentials for your Powerwall - Customer Login Data
+password =''
+email =''
+host = "" # Address of your Powerwall Gateway
+timezone = "" # Your local timezone
+```
+
 # Monitoring Thermostat
 
 see obsidian://open?vault=Personal&file=Household%20and%20Home%2FMonitoring%20Thermostat%20and%20Smart%20Home
