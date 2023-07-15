@@ -160,3 +160,4 @@ cython_debug/
 
 # Configuration file for PyPowerwall. Contains authentication information.
 powerwallconfig.py
+homebridge_config.json
