@@ -34,6 +34,8 @@ Good docs here:
 Follow installation and configuration instructions in [homebridge-tesla-powerwall - npm](https://www.npmjs.com/package/homebridge-tesla-powerwall)
 This plugin can support the Eve app (supports HomeKit and Matter protocols)
 
+Code is based on [vloschiavo/powerwall2: Tesla Powerwall 2 - Local Gateway API documentation](https://github.com/vloschiavo/powerwall2)
+
 ### Eve app from Elgato
 
 Install on iPad (M1 Macs) and iPhone
