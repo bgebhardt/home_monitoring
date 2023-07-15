@@ -14,6 +14,22 @@ A few goals.
 
 see notes in obsidian://open?vault=Personal&file=Coding%20%26%20Hack%20Projects%2FTesla%20Solar%20Powerwall%20Monitoring
 
+## Logging into your Gateway via web
+
+You can use the app, but you can also login via the web
+
+1. Get the ip address of your gateway
+2. In a browser go to that ip
+3. Select customer login
+4. Enter the email you used in the Tesla app
+5. Password - can find on the sticker inside your invertor. It's the last 5 characters of that password.
+
+These are the same credentials PyPowerwall uses.
+
+Reference Links
+- [Connecting to Tesla Gateway and Powerwall+ | Tesla Support](https://www.tesla.com/support/energy/powerwall/own/connecting-network)
+- [How to connect to Tesla Energy Gateway](https://solareenergy.com/solar-articles/tesla-energy-gateway/#:~:text=Select%20%E2%80%9CCustomer%E2%80%9D%20for%20login%20type%20and%20enter%20the,enter%20the%20password%20for%20your%20home%20WiFi%20network.)
+
 ## PyPowerwall install
 
 ```
