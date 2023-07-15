@@ -10,6 +10,35 @@ A few goals.
     - Optimize when to turn on the AC when there is enough solar generation to offset its use
     - Pre-cool the house
 
+# Homekit and Homebridge
+
+[Homebridge](https://homebridge.io/) is a services with integrations written to allow devices not supported by Homekit are supported.
+
+## Install & Configure
+
+Good docs here:
+
+- [Install Homebridge on macOS · homebridge/homebridge Wiki](https://github.com/homebridge/homebridge/wiki/Install-Homebridge-on-macOS)
+- [homebridge/homebridge-config-ui-x: The Homebridge UI. Monitor, configure and backup Homebridge from a browser.](https://github.com/homebridge/homebridge-config-ui-x)
+
+## Plugin install and set up
+
+### Thermostat 
+- [homebridge-resideo - npm](https://www.npmjs.com/package/homebridge-resideo) - for some reason this doesn't include the thermostat on the web but does in the app.
+- Total Comfort Control (TCC)
+    - [homebridge-tcc - npm](https://www.npmjs.com/package/homebridge-tcc) - this one seems to work.
+    - [honey-tcc - npm](https://www.npmjs.com/package/honey-tcc)
+
+### Tesla Powerwall 
+
+Follow installation and configuration instructions in [homebridge-tesla-powerwall - npm](https://www.npmjs.com/package/homebridge-tesla-powerwall)
+This plugin can support the Eve app (supports HomeKit and Matter protocols)
+
+### Eve app from Elgato
+
+Install on iPad (M1 Macs) and iPhone
+https://www.bing.com/ck/a?!&&p=d3a0f2d99efa2ed3JmltdHM9MTY4OTM3OTIwMCZpZ3VpZD0wZjhhZGY2My02ZjFhLTYzZDgtMDVmYS1jYzU5NmU5ZTYyMzQmaW5zaWQ9NTE5Nw&ptn=3&hsh=3&fclid=0f8adf63-6f1a-63d8-05fa-cc596e9e6234&psq=elgato+eve+app&u=a1aHR0cHM6Ly9hcHBzLmFwcGxlLmNvbS91cy9hcHAvZXZlLWZvci1tYXR0ZXItaG9tZWtpdC9pZDkxNzY5NTc5Mg&ntb=1
+
 # Powerwall scripts and monitoring
 
 see notes in obsidian://open?vault=Personal&file=Coding%20%26%20Hack%20Projects%2FTesla%20Solar%20Powerwall%20Monitoring
@@ -77,6 +106,24 @@ timezone = "" # Your local timezone
 
 see obsidian://open?vault=Personal&file=Household%20and%20Home%2FMonitoring%20Thermostat%20and%20Smart%20Home
 
+## Resideo / Honeywell
+
+[Honeywell Home Developer Site | home](https://developer.honeywellhome.com/)
+[Honeywell Home Developer Site | Obtain OAuth2 Client Credentials Token](https://developer.honeywellhome.com/authorization-oauth2/apis/post/accesstoken)
+
+[donavanbecker/homebridge-resideo: The Homebridge Resideo plugin allows you to access your Resideo thermostat from HomeKit.](https://github.com/donavanbecker/homebridge-resideo)
+
+### Total Connect Comfort link
+Older API is Total Connect Comfort. Seems to be replaced by Resideo.
+[Honeywell Home - My Total Connect Comfort](https://mytotalconnectcomfort.com/portal/)
+[Total Connect Comfort Web API Help Page](https://www.mytotalconnectcomfort.com/WebApi/Help/LogIn?ReturnUrl=%2FWebApi%2FHelp)
+[HoneywellThermo-TCC/HoneywellThermo-TCC_C.groovy at master · HubitatCommunity/HoneywellThermo-TCC](https://github.com/HubitatCommunity/HoneywellThermo-TCC/blob/master/HoneywellThermo-TCC_C.groovy)
+
+
+## Smartthings approach
+
+This doesn't get realtime Thermostat updates so going to research using the Resideo/Honeywell API directly.
+
 My thermostat can be registered with Samsung Smartthings
 
 Trying Smartthings CLI to pull indoor temperature reading.
@@ -85,7 +132,7 @@ docs: [Get Started With the SmartThings CLI | SmartThings Developers](https://de
 configuration docs: [smartthings-cli/packages/cli/doc/configuration.md at main · SmartThingsCommunity/smartthings-cli](https://github.com/SmartThingsCommunity/smartthings-cli/blob/main/packages/cli/doc/configuration.md)
 api docs: [API | SmartThings Developers](https://developer.smartthings.com/docs/api/public/)
 
-## Smartthings CLI Install
+### Smartthings CLI Install
 
 To install
 
@@ -93,7 +140,7 @@ To install
 brew install smartthingscommunity/smartthings/smartthings
 ```
 
-## Exmaple usage
+### Example usage
 
 After login here's an example of useful commands.
 
