@@ -15,6 +15,17 @@ The first thing is to decide which home automation software to run. Two I'm cons
 - Homeassistant
 - Homekit with Homebridge
 
+# TODO's
+
+- Set up secure remote connections - ssl, duckdns, etc. - see [(839) Home Assistant 101: Setting up Remote Access - YouTube](https://www.youtube.com/watch?v=EQEpue7GhdI&t=675s)
+- Backup the server
+- Set up battery alerts
+- turn off/disable Homebridge and Homekit
+
+Done
+- Set up companion app
+- Move Home Assistant to Mac mini
+
 # [Home Assistant](https://www.home-assistant.io/)
 
 You run this as a server and it can run without a hub like Homekit requires. Has great out of the box functionality and a ton of integrations. There's an iOS app which I haven't set up yet.
@@ -26,11 +37,43 @@ Good background: [Which Installation Method is Best for Home Assistant? – Siyt
 *This was the best tutorial I found to install.*
 To install as a VM on a mac (hard) - [How To Install Home Assistant Supervised on Mac OS – Siytek](https://siytek.com/home-assistant-supervised-on-mac-os/)
 Note there may be updates here: [home-assistant/supervised-installer: Installer for a generic Linux system](https://github.com/home-assistant/supervised-installer)
-It uses [UTM | Virtual machines for Mac](https://mac.getutm.app/) which is very cool. UTM has lots of Mac friendly features. Even AppleScript [Scripting | UTM Documentation](https://docs.getutm.app/scripting/scripting/)!
 
 *Other options reviewed*
 To install natively on a mac (easy, but didn't work and no addons) - [How To Install Home Assistant On Mac OS – Siytek](https://siytek.com/install-home-assistant-on-mac/) - But you miss the Home Assistant Supervisor and its features
 Official install docs which require understanding VM's (hard) - [MacOS - Home Assistant](https://www.home-assistant.io/installation/macos)
+
+### UTM set up
+
+It uses [UTM | Virtual machines for Mac](https://mac.getutm.app/) which is very cool. UTM has lots of Mac friendly features. Even AppleScript [Scripting | UTM Documentation](https://docs.getutm.app/scripting/scripting/)!
+
+- Set networking to Bridged (Advanced)
+- In your VM run `ip addr | more` to get the internet ip address
+
+On networking: [UTM Networking Mac M1 - YouTube](https://www.youtube.com/watch?v=GgDEwQXpZI8)
+
+- Shared Network (NAT) - can connect out to the WAN but can not be connected to
+- Host Only - No connection to the WAN or host network. But can communicate between VMs on the machine with ssh.
+- Bridged (Advanced) - select virtio-net-pic. Get IP from your host network.
+
+More references
+
+- [Network | UTM Documentation](https://docs.getutm.app/settings-qemu/devices/network/network/)
+- [Virtual Box vs. UTM: Run Virtual Machines on Your Apple Silicon M1 Mac](https://eshop.macsales.com/blog/72081-utm-virtual-machine-on-m1-mac/)
+- [Debian 11 + Rosetta | UTM Documentation](https://docs.getutm.app/guides/debian/)
+
+### Start UTM on startup
+
+Ideally I'd run as a service in the background, but choosing to do it as a login item as that's easier for me following these instructions - [Remote Control | UTM Documentation](https://docs.getutm.app/advanced/remote-control/).
+
+Headless can run in the background [Headless | UTM Documentation](https://docs.getutm.app/advanced/headless/), but I don't want to have to login via ssh.
+Interseting ideas here too. [\[MacOS\] Start VM Headless/In Background · Issue #2280 · utmapp/UTM](https://github.com/utmapp/UTM/issues/2280)
+
+### Home Assistant companion app (iOS/Android)
+
+- Install the app
+- Enter server address manually if not found
+
+
 
 ## Configure
 
@@ -41,7 +84,10 @@ Devices to configure
 - Tesla Powerwall
 - Honeywell Thermostat
 - Samsung TV
-- Vizio TV
+- Vizio TV - note working yet; see info in [VIZIO SmartCast - Home Assistant](https://www.home-assistant.io/integrations/vizio) and [raman325/pyvizio: Python client for Vizio SmartCast](https://github.com/raman325/pyvizio)
+- Xbox - see [Xbox - Home Assistant](https://www.home-assistant.io/integrations/xbox/)
+- [Google Cast - Home Assistant](https://www.home-assistant.io/integrations/cast)
+
 
 Top Add Ons to install
 - File editor
@@ -72,28 +118,86 @@ Integrations to consider
 - Get the companion app installed and connected
 - Move instance to run on mac mini
 
+## Automatically Backing up Home Assistant
+
+Great article outlining options: [Home Assistant Backup Methods & Best Practices - SmartHomeScene](https://smarthomescene.com/guides/home-assistant-backup-methods-and-best-practices/)
+
+For me it's OneDrive using [lavinir/hassio-onedrive-backup](https://github.com/lavinir/hassio-onedrive-backup)
+
+- Navigate to Settings > Add-ons > Add-on Store
+- Click the three dots in the top right corner and select Repositories
+- Add the following repo: https://github.com/lavinir/hassio-onedrive-backup
+- Click Add than Close
+
+Other info: [How do I back-up Home Assistant? – Maartendamen.com](https://maartendamen.com/how-do-i-back-up-home-assistant/#:~:text=Here%20it%20the%20quick%20basic%20answer%20to%20the,put%20your%20snapshot%20away%20in%20a%20secure%20place.)
+
 ## Automation approaches
 
-Tutorial:
+Tutorials and info
+[Create a Basic Automation in Home Assistant](https://theprivatesmarthome.com/how-to/create-basic-automation-home-assistant/#:~:text=Create%20a%20Basic%20Automation%20in%20Home%20Assistant%201,next%20year%21%20...%204%20Deleting%20the%20Automation%20)
 [Easy home Assistant Notifications using Alerts! - YouTube](https://www.youtube.com/watch?v=uQwIusogTZE&t=9s)
 [I was wrong about Home Assistant Automations - YouTube](https://www.youtube.com/watch?v=7xfHiD4AuXM)
 [5 Home Assistant Built-In Integrations You Probably Should be Using - YouTube](https://www.youtube.com/watch?v=QZB_o62AuV0)
 [Easy Notifications with Alerts — Slacker Labs](https://www.slacker-labs.com/blog/2022/04/13/home-assistant-alerts)
 [HOW TO Connect Home Assistant to Apple Homekit - YouTube](https://www.youtube.com/watch?v=3tutxHO0J78)
 [Getting started with the home assistant app for MAC os | JuanMTech](https://www.juanmtech.com/getting-started-with-the-home-assistant-app-for-macos/)
+See types of triggers at [Automation Trigger - Home Assistant](https://www.home-assistant.io/docs/automation/trigger/)
 
-Notification options
+### Useful tips
 
+Running automation every time period - use time pattern - [How Do Time Patterns Work in Home Assistant - Home Automation Insider](https://homeautomationinsider.com/how-do-time-patterns-work-in-home-assistant/)
+- "/30" is every half hour; must be like cron patterns - [Time_pattern every full and half hour - Configuration - Home Assistant Community](https://community.home-assistant.io/t/time-pattern-every-full-and-half-hour/147263/2)
+- Use template editor in dev tools - [Add sensor value to notification message - Share your Projects! / Dashboards & Frontend - Home Assistant Community](https://community.home-assistant.io/t/add-sensor-value-to-notification-message/117661/3)
+
+Finding your variable - use dev tools and look at states. You can test code in Templates. Example here is the powerwall charge state class. Call its state to get the charing percentage.
+See [State Objects - Home Assistant](https://www.home-assistant.io/docs/configuration/state_object/) for attributes.
+{{states.sensor.**sensor-name**.state}}
+{{states.sensor.powerwall_charge}}
+{{states.sensor.powerwall_charge.state}}
+
+Example:
+{{states.sensor.powerwall_charge.name}} is at {{states.sensor.powerwall_charge.state}} {{states.sensor.powerwall_charge.attributes.unit_of_measurement}}
+{{states.binary_sensor.powerwall_charging.name}} is {{states.binary_sensor.powerwall_charging.state}}
+({{states.sensor.powerwall_battery_now.state}} {{states.sensor.powerwall_battery_now.attributes.unit_of_measurement}})
+Result:
+Powerwall Charge is at 58 %
+Powerwall Charging is on
+ (-2.29 kW)
+
+ More info on Powerwall
+ - [Tesla Powerwall and Home Energy Management - Configuration - Home Assistant Community](https://community.home-assistant.io/t/tesla-powerwall-and-home-energy-management/335228)
+ - [Solar battery run time till empty - Configuration - Home Assistant Community](https://community.home-assistant.io/t/solar-battery-run-time-till-empty/408778)
+ - [Search results for 'powerwall' - Home Assistant Community](https://community.home-assistant.io/search?q=powerwall)
+
+## Potential Automations
+
+Automations to explore
+
+- [Howto: Notify me when users arrive or depart my Home zone - Configuration - Home Assistant Community](https://community.home-assistant.io/t/howto-notify-me-when-users-arrive-or-depart-my-home-zone/332702)
+- 
+
+
+
+### Notification options
+
+- To your mobile device if the companion app is installed
 - [SendGrid - Home Assistant](https://www.home-assistant.io/integrations/sendgrid) - free 100 mails/day
 - in browser - [HTML5 Push Notifications - Home Assistant](https://www.home-assistant.io/integrations/html5)
 - Email SMTP server - [Can Home Assistant Send Email? – Siytek](https://siytek.com/can-home-assistant-send-email/#:~:text=Can%20Home%20Assistant%20Send%20Email%3F%201%20Setting%20up,service%20to%20Home%20Assistant.%20...%203%20Conclusion%20)
 - [ClickSend SMS - Home Assistant](https://www.home-assistant.io/integrations/clicksend/)
+
+sensor.powerwall_charge
 
 ## References
 
 - Great tutorials are here: [Home Assistant – Siytek](https://siytek.com/category/smart-home-tek/home-assistant/)
 - [Home Assistant Beginner’s Guide: Setting up Home Assistant](https://home-assistant-guide.com/guide/the-home-assistant-beginners-guide-part-1-setting-up-hass-io/#:~:text=The%20Home%20Assistant%20Supervisor%20allows%20you%2C%20the%20user%2C,Make%20and%20restore%20backups%20Add-ons%20Unified%20audio%20system) - Explains different Home Assistant parts
 - [Home Assistant COMPLETE Beginners Guide 2023 - YouTube](https://www.youtube.com/watch?v=LI3lhgOiZ-8)
+
+- [Tesla Powerwall and Home Energy Management - Configuration - Home Assistant Community](https://community.home-assistant.io/t/tesla-powerwall-and-home-energy-management/335228/7)
+- [Solar battery run time till empty - Configuration - Home Assistant Community](https://community.home-assistant.io/t/solar-battery-run-time-till-empty/408778/12)
+- [Search results for 'powerwall' - Home Assistant Community](https://community.home-assistant.io/search?q=powerwall)
+- [Overview – Home Assistant](http://192.168.64.2:8123/lovelace/0)
 
 # Homekit and Homebridge
 
