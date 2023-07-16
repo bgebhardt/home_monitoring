@@ -10,6 +10,91 @@ A few goals.
     - Optimize when to turn on the AC when there is enough solar generation to offset its use
     - Pre-cool the house
 
+The first thing is to decide which home automation software to run. Two I'm considering.
+
+- Homeassistant
+- Homekit with Homebridge
+
+# [Home Assistant](https://www.home-assistant.io/)
+
+You run this as a server and it can run without a hub like Homekit requires. Has great out of the box functionality and a ton of integrations. There's an iOS app which I haven't set up yet.
+
+## Install
+
+Good background: [Which Installation Method is Best for Home Assistant? – Siytek](https://siytek.com/which-installation-method-is-best-for-home-assistant/)
+
+*This was the best tutorial I found to install.*
+To install as a VM on a mac (hard) - [How To Install Home Assistant Supervised on Mac OS – Siytek](https://siytek.com/home-assistant-supervised-on-mac-os/)
+Note there may be updates here: [home-assistant/supervised-installer: Installer for a generic Linux system](https://github.com/home-assistant/supervised-installer)
+It uses [UTM | Virtual machines for Mac](https://mac.getutm.app/) which is very cool. UTM has lots of Mac friendly features. Even AppleScript [Scripting | UTM Documentation](https://docs.getutm.app/scripting/scripting/)!
+
+*Other options reviewed*
+To install natively on a mac (easy, but didn't work and no addons) - [How To Install Home Assistant On Mac OS – Siytek](https://siytek.com/install-home-assistant-on-mac/) - But you miss the Home Assistant Supervisor and its features
+Official install docs which require understanding VM's (hard) - [MacOS - Home Assistant](https://www.home-assistant.io/installation/macos)
+
+## Configure
+
+[Getting started with the home assistant app for MAC os | JuanMTech](https://www.juanmtech.com/getting-started-with-the-home-assistant-app-for-macos/)
+[(838) HOW TO Connect Home Assistant to Apple Homekit - YouTube](https://www.youtube.com/watch?v=3tutxHO0J78)
+
+Devices to configure
+- Tesla Powerwall
+- Honeywell Thermostat
+- Samsung TV
+- Vizio TV
+
+Top Add Ons to install
+- File editor
+- Log Viewer
+- Grafana - [addon-grafana/grafana/DOCS.md at main · hassio-addons/addon-grafana](https://github.com/hassio-addons/addon-grafana/blob/main/grafana/DOCS.md)
+- InfluxDB
+- JupyterLab
+- Glances
+
+Integrations to consider
+- [AirNow - Home Assistant](https://www.home-assistant.io/integrations/airnow/)
+    - [AirNow API Documentation](https://docs.airnowapi.org/aq101)
+- [National Weather Service (NWS) - Home Assistant](https://www.home-assistant.io/integrations/nws)
+- [AccuWeather - Home Assistant](https://www.home-assistant.io/integrations/accuweather/)
+    - [Home Assistant How To - get most out of AccuWeather integration - YouTube](https://www.youtube.com/watch?v=DXehQBgdsHk)
+- Google Drive
+- Local Calendar
+- [International Space Station (ISS) - Home Assistant](https://www.home-assistant.io/integrations/iss)
+
+- [sabeechen/hassio-google-drive-backup: Automatically create and sync Home Assistant backups into Google Drive](https://github.com/sabeechen/hassio-google-drive-backup)
+
+- Package tracking - [How To Install Mail and Packages Integration Home Assistant - Smart Home Pursuits](https://smarthomepursuits.com/how-to-install-mail-and-packages-integration-home-assistant/?expand_article=1)
+
+[The Best Home Assistant Addons And Repos Of 2023 - Gadget-Freakz.com](https://gadget-freakz.com/the-best-home-assistant-addons-and-repos-of-2023/)
+
+## Companion App
+
+- Get the companion app installed and connected
+- Move instance to run on mac mini
+
+## Automation approaches
+
+Tutorial:
+[Easy home Assistant Notifications using Alerts! - YouTube](https://www.youtube.com/watch?v=uQwIusogTZE&t=9s)
+[I was wrong about Home Assistant Automations - YouTube](https://www.youtube.com/watch?v=7xfHiD4AuXM)
+[5 Home Assistant Built-In Integrations You Probably Should be Using - YouTube](https://www.youtube.com/watch?v=QZB_o62AuV0)
+[Easy Notifications with Alerts — Slacker Labs](https://www.slacker-labs.com/blog/2022/04/13/home-assistant-alerts)
+[HOW TO Connect Home Assistant to Apple Homekit - YouTube](https://www.youtube.com/watch?v=3tutxHO0J78)
+[Getting started with the home assistant app for MAC os | JuanMTech](https://www.juanmtech.com/getting-started-with-the-home-assistant-app-for-macos/)
+
+Notification options
+
+- [SendGrid - Home Assistant](https://www.home-assistant.io/integrations/sendgrid) - free 100 mails/day
+- in browser - [HTML5 Push Notifications - Home Assistant](https://www.home-assistant.io/integrations/html5)
+- Email SMTP server - [Can Home Assistant Send Email? – Siytek](https://siytek.com/can-home-assistant-send-email/#:~:text=Can%20Home%20Assistant%20Send%20Email%3F%201%20Setting%20up,service%20to%20Home%20Assistant.%20...%203%20Conclusion%20)
+- [ClickSend SMS - Home Assistant](https://www.home-assistant.io/integrations/clicksend/)
+
+## References
+
+- Great tutorials are here: [Home Assistant – Siytek](https://siytek.com/category/smart-home-tek/home-assistant/)
+- [Home Assistant Beginner’s Guide: Setting up Home Assistant](https://home-assistant-guide.com/guide/the-home-assistant-beginners-guide-part-1-setting-up-hass-io/#:~:text=The%20Home%20Assistant%20Supervisor%20allows%20you%2C%20the%20user%2C,Make%20and%20restore%20backups%20Add-ons%20Unified%20audio%20system) - Explains different Home Assistant parts
+- [Home Assistant COMPLETE Beginners Guide 2023 - YouTube](https://www.youtube.com/watch?v=LI3lhgOiZ-8)
+
 # Homekit and Homebridge
 
 [Homebridge](https://homebridge.io/) is a services with integrations written to allow devices not supported by Homekit are supported.
