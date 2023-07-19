@@ -22,6 +22,8 @@ The first thing is to decide which home automation software to run. Two I'm cons
 - Set up battery alerts
 - turn off/disable Homebridge and Homekit
 
+- Set up energy dashboard once Tesla fixed - here's how [Using Tesla Powerwall Data on the HA Energy Dashboard - Third party integrations - Home Assistant Community](https://community.home-assistant.io/t/using-tesla-powerwall-data-on-the-ha-energy-dashboard/333357)
+
 Done
 - Set up companion app
 - Move Home Assistant to Mac mini
@@ -73,7 +75,7 @@ Interseting ideas here too. [\[MacOS\] Start VM Headless/In Background · Issue 
 - Install the app
 - Enter server address manually if not found
 
-
+You can run the companion app on your Mac and it has sensors you can use for automation! It lets you add widgets and buttons to trigger actions that get sent to Home Assistant. See details here: [Getting started with the home assistant app for MAC os | JuanMTech](https://www.juanmtech.com/getting-started-with-the-home-assistant-app-for-macos/)
 
 ## Configure
 
@@ -112,11 +114,6 @@ Integrations to consider
 - Package tracking - [How To Install Mail and Packages Integration Home Assistant - Smart Home Pursuits](https://smarthomepursuits.com/how-to-install-mail-and-packages-integration-home-assistant/?expand_article=1)
 
 [The Best Home Assistant Addons And Repos Of 2023 - Gadget-Freakz.com](https://gadget-freakz.com/the-best-home-assistant-addons-and-repos-of-2023/)
-
-## Companion App
-
-- Get the companion app installed and connected
-- Move instance to run on mac mini
 
 ## Automatically Backing up Home Assistant
 
@@ -169,6 +166,13 @@ Powerwall Charging is on
  - [Solar battery run time till empty - Configuration - Home Assistant Community](https://community.home-assistant.io/t/solar-battery-run-time-till-empty/408778)
  - [Search results for 'powerwall' - Home Assistant Community](https://community.home-assistant.io/search?q=powerwall)
 
+### More ideas and automations
+
+- [How to theme home assistant | JuanMTech](https://www.juanmtech.com/how-to-theme-home-assistant/)
+- [Install hacs in home assistant for themes and custom cards | JuanMTech](https://www.juanmtech.com/install-hacs-in-home-assistant-for-themes-and-custom-cards/)
+    - [Home Assistant Community Store | HACS](https://hacs.xyz/)
+- [Set up an alarm system with home assistant and alarmo | JuanMTech](https://www.juanmtech.com/set-up-an-alarm-system-with-home-assistant-and-alarmo/)
+
 ## Potential Automations
 
 Automations to explore
@@ -209,6 +213,16 @@ Good docs here:
 
 - [Install Homebridge on macOS · homebridge/homebridge Wiki](https://github.com/homebridge/homebridge/wiki/Install-Homebridge-on-macOS)
 - [homebridge/homebridge-config-ui-x: The Homebridge UI. Monitor, configure and backup Homebridge from a browser.](https://github.com/homebridge/homebridge-config-ui-x)
+
+### Disabling Homebridge
+
+I disabled it as using Home Assistant now.
+
+To remove the Homebridge service run:
+`sudo hb-service uninstall`
+
+To remove Homebridge and Homebridge Config UI X run:
+`sudo npm uninstall --location=global homebridge homebridge-config-ui-x`
 
 ## Plugin install and set up
 
