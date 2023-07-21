@@ -20,7 +20,6 @@ The first thing is to decide which home automation software to run. Two I'm cons
 - Set up secure remote connections - ssl, duckdns, etc. - see [(839) Home Assistant 101: Setting up Remote Access - YouTube](https://www.youtube.com/watch?v=EQEpue7GhdI&t=675s)
 - Backup the server
 - Set up battery alerts
-- turn off/disable Homebridge and Homekit
 
 - Set up energy dashboard once Tesla fixed - here's how [Using Tesla Powerwall Data on the HA Energy Dashboard - Third party integrations - Home Assistant Community](https://community.home-assistant.io/t/using-tesla-powerwall-data-on-the-ha-energy-dashboard/333357)
 
@@ -82,6 +81,9 @@ You can run the companion app on your Mac and it has sensors you can use for aut
 [Getting started with the home assistant app for MAC os | JuanMTech](https://www.juanmtech.com/getting-started-with-the-home-assistant-app-for-macos/)
 [(838) HOW TO Connect Home Assistant to Apple Homekit - YouTube](https://www.youtube.com/watch?v=3tutxHO0J78)
 
+Important security setup recommendations.
+[5 ESSENTIAL Tips for Security on Home Assistant - YouTube](https://www.youtube.com/watch?v=AXKPIF3aJ6U)
+
 Devices to configure
 - Tesla Powerwall
 - Honeywell Thermostat
@@ -128,11 +130,28 @@ For me it's OneDrive using [lavinir/hassio-onedrive-backup](https://github.com/l
 
 Other info: [How do I back-up Home Assistant? – Maartendamen.com](https://maartendamen.com/how-do-i-back-up-home-assistant/#:~:text=Here%20it%20the%20quick%20basic%20answer%20to%20the,put%20your%20snapshot%20away%20in%20a%20secure%20place.)
 
+## Set up remote access
+
+Cloudflare tunnel approach
+[The Easiest Free Way To Do Home Assistant Remote Access! - YouTube](https://www.youtube.com/watch?v=xXAwT9N-7Hw)
+[brenner-tobias/ha-addons: Repository for Home Assistant Add-Ons](https://github.com/brenner-tobias/ha-addons)
+[How tos · brenner-tobias/addon-cloudflared Wiki](https://github.com/brenner-tobias/addon-cloudflared/wiki/How-tos)
+
+Great additional advice on the risks of Cloudflare tunnels
+[You should NOT use Cloudflare Tunnel (if you do this...) - YouTube](https://www.youtube.com/watch?v=oqy3krzmSMA)
+General tunnel creation instructions
+[How to use Cloudflare Tunnel in your Homelab (even with Traefik) - YouTube](https://www.youtube.com/watch?v=yMmxw-DZ5Ec)
+
+TODO: look into stronger authentication approaches for the tunnel.
+
+Dynamic DNS + port forwarding approach (not recommended)
+[Home Assistant Remote Access for FREE - DuckDNS + LetsEncrypt + Single URL - YouTube](https://www.youtube.com/watch?v=AK5E2T5tWyM&list=WL&index=5)
+[Home Assistant 101: Setting up Remote Access - YouTube](https://www.youtube.com/watch?v=EQEpue7GhdI&t=675s)
+
 ## Dashboard configuration
 
 Great video on creating a dashboard - easy vs hard
 - [Creating a Beautiful Home Assistant Mobile Dashboard Easily! - YouTube](https://www.youtube.com/watch?v=gouMnPxYHDc)
-- 
 
 ## Automation approaches
 
