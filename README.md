@@ -128,6 +128,12 @@ For me it's OneDrive using [lavinir/hassio-onedrive-backup](https://github.com/l
 
 Other info: [How do I back-up Home Assistant? – Maartendamen.com](https://maartendamen.com/how-do-i-back-up-home-assistant/#:~:text=Here%20it%20the%20quick%20basic%20answer%20to%20the,put%20your%20snapshot%20away%20in%20a%20secure%20place.)
 
+## Dashboard configuration
+
+Great video on creating a dashboard - easy vs hard
+- [Creating a Beautiful Home Assistant Mobile Dashboard Easily! - YouTube](https://www.youtube.com/watch?v=gouMnPxYHDc)
+- 
+
 ## Automation approaches
 
 Tutorials and info
@@ -140,7 +146,7 @@ Tutorials and info
 [Getting started with the home assistant app for MAC os | JuanMTech](https://www.juanmtech.com/getting-started-with-the-home-assistant-app-for-macos/)
 See types of triggers at [Automation Trigger - Home Assistant](https://www.home-assistant.io/docs/automation/trigger/)
 
-### Useful tips
+## Useful tips
 
 Running automation every time period - use time pattern - [How Do Time Patterns Work in Home Assistant - Home Automation Insider](https://homeautomationinsider.com/how-do-time-patterns-work-in-home-assistant/)
 - "/30" is every half hour; must be like cron patterns - [Time_pattern every full and half hour - Configuration - Home Assistant Community](https://community.home-assistant.io/t/time-pattern-every-full-and-half-hour/147263/2)
@@ -161,12 +167,59 @@ Powerwall Charge is at 58 %
 Powerwall Charging is on
  (-2.29 kW)
 
- More info on Powerwall
- - [Tesla Powerwall and Home Energy Management - Configuration - Home Assistant Community](https://community.home-assistant.io/t/tesla-powerwall-and-home-energy-management/335228)
- - [Solar battery run time till empty - Configuration - Home Assistant Community](https://community.home-assistant.io/t/solar-battery-run-time-till-empty/408778)
- - [Search results for 'powerwall' - Home Assistant Community](https://community.home-assistant.io/search?q=powerwall)
+## Tesla Configuration info
 
-### More ideas and automations
+When configuring any energy cards with Tesla sensors these mean the following:
+- Now - current energy usage (+ or -)
+- Export - energy the device is outputting
+- Import - energy the device is consuming
+
+- Powerwall Battery = battery
+- Powerwall Solar = solar
+- Powerwall Site = grid (i.e. energy using or exporting to the grid)
+- Powerwall Load = Home (i.e. the load from your home)
+
+battery:
+    entity: sensor.powerwall_battery_now
+    state_of_charge: sensor.powerwall_charge
+    display_state: two_way
+grid:
+    entity: sensor.powerwall_site_now
+solar:
+    entity: sensor.powerwall_solar_now
+    display_zero_state: true
+home:
+    entity: sensor.powerwall_load_now
+
+From [Using Tesla Powerwall Data on the HA Energy Dashboard - Third party integrations - Home Assistant Community](https://community.home-assistant.io/t/using-tesla-powerwall-data-on-the-ha-energy-dashboard/333357)
+Here’s what I did after upgrading to Home Assistant 2019.9 45
+
+- Grid Consumption: Powerwall Site Import
+- Return to grid: Powerwall Site Export
+- Solar Production: Powerwall Solar Export
+- Home Battery Storage:
+    - Energy going in to the battery (kWh): Powerwall Battery Import
+    - Energy coming out of the battery (kWh): Powerwall Battery Export
+
+ More info on Powerwall
+- [Tesla Powerwall - Home Assistant](https://www.home-assistant.io/integrations/powerwall)
+- [Tesla Powerwall and Home Energy Management - Configuration - Home Assistant Community](https://community.home-assistant.io/t/tesla-powerwall-and-home-energy-management/335228)
+- [Solar battery run time till empty - Configuration - Home Assistant Community](https://community.home-assistant.io/t/solar-battery-run-time-till-empty/408778)
+- [Search results for 'powerwall' - Home Assistant Community](https://community.home-assistant.io/search?q=powerwall)
+
+Best power distribution card I've found. Requires HACS.
+[ulic75/power-flow-card: A power distribution card inspired by the official Energy Distribution card for Home Assistant](https://github.com/ulic75/power-flow-card/)
+
+## Weather
+
+Recommend National Weather Service
+Use any number for the API key - reference: [NWS Integration API Key - Where to obtain ley? - Configuration - Home Assistant Community](https://community.home-assistant.io/t/nws-integration-api-key-where-to-obtain-ley/252913/2)
+
+## Mushroom dashboard Cards
+
+Take a look at the additional cards here: [lovelace-mushroom/docs/cards/template.md at main · piitaya/lovelace-mushroom](https://github.com/piitaya/lovelace-mushroom/blob/main/docs/cards/template.md)
+
+### More automation tutorials
 
 - [How to theme home assistant | JuanMTech](https://www.juanmtech.com/how-to-theme-home-assistant/)
 - [Install hacs in home assistant for themes and custom cards | JuanMTech](https://www.juanmtech.com/install-hacs-in-home-assistant-for-themes-and-custom-cards/)
@@ -191,6 +244,15 @@ Automations to explore
 - [ClickSend SMS - Home Assistant](https://www.home-assistant.io/integrations/clicksend/)
 
 sensor.powerwall_charge
+
+## Nintendo Switch integration
+
+There is no official integration for Nintendo Switch but these seem promising/interesting.
+
+- [New Integration: Nintendo Switch - Feature Requests - Home Assistant Community](https://community.home-assistant.io/t/new-integration-nintendo-switch/564797)
+- [Nintendo Switch App Sensor - Track for example your Ring Fit Activity - Share your Projects! - Home Assistant Community](https://community.home-assistant.io/t/nintendo-switch-app-sensor-track-for-example-your-ring-fit-activity/308280/10)
+- [Samuel Elliott / Nintendo Switch app APIs · GitLab](https://gitlab.com/samuelthomas2774/nxapi)
+
 
 ## References
 
