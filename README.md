@@ -137,10 +137,12 @@ Cloudflare tunnel approach
 [brenner-tobias/ha-addons: Repository for Home Assistant Add-Ons](https://github.com/brenner-tobias/ha-addons)
 [How tos · brenner-tobias/addon-cloudflared Wiki](https://github.com/brenner-tobias/addon-cloudflared/wiki/How-tos)
 
-Great additional advice on the risks of Cloudflare tunnels
-[You should NOT use Cloudflare Tunnel (if you do this...) - YouTube](https://www.youtube.com/watch?v=oqy3krzmSMA)
 General tunnel creation instructions
-[How to use Cloudflare Tunnel in your Homelab (even with Traefik) - YouTube](https://www.youtube.com/watch?v=yMmxw-DZ5Ec)
+- [You Need to Learn This! Cloudflare Tunnel Easy Tutorial - YouTube](https://www.youtube.com/watch?v=ZvIdFs3M5ic)
+- [How to use Cloudflare Tunnel in your Homelab (even with Traefik) - YouTube](https://www.youtube.com/watch?v=yMmxw-DZ5Ec)
+
+Great additional advice on the risks of Cloudflare tunnels
+- [You should NOT use Cloudflare Tunnel (if you do this...) - YouTube](https://www.youtube.com/watch?v=oqy3krzmSMA)
 
 TODO: look into stronger authentication approaches for the tunnel.
 
