@@ -231,6 +231,15 @@ Here’s what I did after upgrading to Home Assistant 2019.9 45
 Best power distribution card I've found. Requires HACS.
 [ulic75/power-flow-card: A power distribution card inspired by the official Energy Distribution card for Home Assistant](https://github.com/ulic75/power-flow-card/)
 
+## Forecast Solar configuration
+[Forecast.Solar - Home Assistant](https://www.home-assistant.io/integrations/forecast_solar)
+
+- Put in the kW capacity of your solar system in watts.
+- To calculate your azimuth see - [find_your_azimuth \[Forecast.Solar\]](https://doc.forecast.solar/find_your_azimuth)
+    - suncalc.org azimuth for me is 66.88
+    - Openstreet Maps azimuth for me is 303 but I think I did this wrong
+- declination - got from my Tesla plans - 18
+
 ## Weather
 
 Recommend National Weather Service
@@ -255,8 +264,7 @@ Automations to explore
 - 
 
 
-
-### Notification options
+## Notification options
 
 - To your mobile device if the companion app is installed
 - [SendGrid - Home Assistant](https://www.home-assistant.io/integrations/sendgrid) - free 100 mails/day
@@ -274,6 +282,9 @@ There is no official integration for Nintendo Switch but these seem promising/in
 - [Nintendo Switch App Sensor - Track for example your Ring Fit Activity - Share your Projects! - Home Assistant Community](https://community.home-assistant.io/t/nintendo-switch-app-sensor-track-for-example-your-ring-fit-activity/308280/10)
 - [Samuel Elliott / Nintendo Switch app APIs · GitLab](https://gitlab.com/samuelthomas2774/nxapi)
 
+## Advice on Templates
+
+[(867) Mastering Home Assistant Templates: Intro to Date and Time - YouTube](https://www.youtube.com/watch?v=2WIi5xq0iHI)
 
 ## References
 
