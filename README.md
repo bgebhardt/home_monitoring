@@ -188,6 +188,14 @@ Powerwall Charge is at 58 %
 Powerwall Charging is on
  (-2.29 kW)
 
+## Raycast plugin
+
+The [Raycast Store: Home Assistant](https://www.raycast.com/tonka3000/homeassistant) plugin allos you to control Home Assistant from the Raycast  app. It provides a clean interface to view entities, trigger automations, and more.
+
+It is extremely slow loading via the extrenal URL, so configure access via the local URL. Otherwise follow the instructions included with the plugin.
+
+You can search entities and even change them. For example I can increase or decrease the thermostat by 0.5 degrees.
+
 ## Tesla Configuration info
 
 When configuring any energy cards with Tesla sensors these mean the following:
@@ -284,7 +292,8 @@ There is no official integration for Nintendo Switch but these seem promising/in
 
 ## Advice on Templates
 
-[(867) Mastering Home Assistant Templates: Intro to Date and Time - YouTube](https://www.youtube.com/watch?v=2WIi5xq0iHI)
+[Mastering Home Assistant Templates: A Beginner's Guide - YouTube](https://www.youtube.com/watch?v=m1aqyX6LXlo)
+[Mastering Home Assistant Templates: Intro to Date and Time - YouTube](https://www.youtube.com/watch?v=2WIi5xq0iHI)
 
 ## References
 
